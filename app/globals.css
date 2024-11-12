@@ -1,0 +1,154 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+/* Example CSS for centering */
+/* .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh; /* Full viewport height */
+  */
+/*   
+  .header, .footer {
+    width: 100%;
+    text-align: center;
+  }
+   */
+.nav-link {
+    position: relative;
+    display: inline-block;
+    padding-bottom: 4px; /* Increase the space between text and underline */
+    text-underline-offset: 4px; /* Adjust the value as needed */
+    color: aliceblue;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 50%;
+    background-color: currentColor;
+    transition: width 0.3s ease, left 0.3s ease;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+    left: 0;
+}
+
+.tooltip {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 100%;
+    margin-top: 8px;
+    background-color: black;
+    color: white;
+    padding: 14px 18px;
+    border-radius: 4px;
+    white-space: nowrap;
+    z-index: 10;
+    display: none;
+}
+
+.group:hover .tooltip {
+    display: block;
+}
+
+/* Underline animation for footer links */
+.footer-link {
+    position: relative;
+    display: inline-block;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .footer-link::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: white;
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+  }
+  
+  .footer-link:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
+  
+  /* Logo pop-in animation */
+  @keyframes popIn {
+    0% {
+      transform: translateY(-100px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  .logo {
+    animation: popIn 0.5s ease-out forwards;
+  }
+  
+  /* Pop-in animation for nav links */
+@keyframes navPopIn {
+    0% {
+      transform: translateY(-20px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  .nav-link {
+    animation: navPopIn 0.5s ease-out forwards;
+    animation-delay: 0.5s; /* Adjust delay as needed */
+    opacity: 0; /* Ensure links are initially hidden */
+  }
+
+  /* app/loading.module.css */
+.loadingContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #f0f2f5;
+    flex-direction: column;
+  }
+  
+  .spinner {
+    width: 60px;
+    height: 60px;
+    border: 6px solid #f3f3f3;
+    border-top: 6px solid #0070f3;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+  }
+  
+  .loadingText {
+    margin-top: 20px;
+    font-size: 1.2rem;
+    color: #333;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
