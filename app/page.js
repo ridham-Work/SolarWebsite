@@ -1,6 +1,5 @@
 import React from "react";
 import Image from "next/image";
-import "./globals.css";
 import SolarSection from "@/app/components/SolarSection";
 import SolarResidentialSection from "./components/SolarResidential";
 import CommercialSolarSection from "./components/CommercialSolar";
@@ -11,11 +10,13 @@ import WhyChooseUs from "./components/WhyChooseUs";
 import FAQ from "./components/Faq";
 import ContactUs from "./components/Contactus";
 
-// Static Metadata
 export const metadata = {
   title: "MS Solar Spark - Solar Energy Solutions",
   description:
     "Discover how MS Solar Spark can help you save on electricity bills with sustainable solar energy solutions. Empower a greener future.",
+  icons: {
+    icon: "/favicons.png", // Ensures your favicon appears
+  },
   keywords: [
     "solar energy",
     "green energy",
@@ -25,26 +26,26 @@ export const metadata = {
     "eco-friendly",
     "energy savings",
   ],
-  openGraph: {
-    title: "MS Solar Spark - Solar Energy Solutions",
-    description:
-      "Discover how MS Solar Spark can help you save on electricity bills with sustainable solar energy solutions.",
-    url: "https://www.mssolarspark.com",
-    images: [
-      {
-        url: "/images/solar-banner.jpg",
-        width: 800,
-        height: 600,
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "MS Solar Spark - Solar Energy Solutions",
-    description:
-      "Discover how MS Solar Spark can help you save on electricity bills with sustainable solar energy solutions.",
-    images: ["/images/solar-banner.jpg"],
-  },
+  // openGraph: {
+  //   title: "MS Solar Spark - Solar Energy Solutions",
+  //   description:
+  //     "Discover how MS Solar Spark can help you save on electricity bills with sustainable solar energy solutions.",
+  //   url: "https://www.mssolarspark.com",
+  //   images: [
+  //     {
+  //       url: "/images/solar-banner.jpg",
+  //       width: 800,
+  //       height: 600,
+  //     },
+  //   ],
+  // },
+  // twitter: {
+  //   card: "summary_large_image",
+  //   title: "MS Solar Spark - Solar Energy Solutions",
+  //   description:
+  //     "Discover how MS Solar Spark can help you save on electricity bills with sustainable solar energy solutions.",
+  //   images: ["/images/solar-banner.jpg"],
+  // },
 };
 
 const SolarCalculator = () => {
