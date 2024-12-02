@@ -27,7 +27,7 @@ export default function RootLayout({ children }) {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 1000);
+    }, 500);
 
     return () => clearTimeout(timer);
   }, []);
@@ -37,41 +37,50 @@ export default function RootLayout({ children }) {
   };
 
   const navItems = [
-    { name: "Company", links: ["About Us", "Careers", "Press"] },
+    { name: "Company", links: ["Testimonials", "Why Trust Us?"] },
     { name: "Solar Panels", links: ["Residential", "Commercial"] },
-    { name: "Investors", links: ["Investor Relations", "Reports"] },
-    "Solar for Home",
-    "Solar for Business",
-    { name: "Reach Us", links: ["Contact Form", "Locations", "Support"] },
+    "About US",
+    "Get Quotation",
+    "FAQ's",
+    "Reach Us"
+     // { name: "Reach Us", links: ["Contact Form", "Locate US"] },
   ];
 
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+      >
         {isLoading ? (
           <Loading />
         ) : (
           <>
-            <header className="bg-[#000B58] text-white p-4 flex justify-between items-center">
+            {/* Sticky Header */}
+            <header className="bg-[#000B58] fixed top-0 left-0 right-0 z-40 text-white p-4 flex justify-between items-center">
               <div className="flex items-center">
                 <Image
-                  src="/logo.png"
+                  src="/logofinal.png"
                   alt="Brand Logo"
                   width={100}
-                  height={50}
-                  className="mr-3 logo"
+                  height={60}
+                  className="mr-3 object-cover h-10 w-40 logo"
                 />
               </div>
               <button
-                className="md:hidden block"
+                className="mobile-nav block"
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
               >
                 ☰
               </button>
-              <nav className="hidden md:flex space-x-4">
-                {navItems.map((item, index) => (
-                  typeof item === 'string' ? (
-                    <a key={index} href="#" className="nav-link font-bold">
+              <nav className="desktop-nav space-x-4">
+                {navItems.map((item, index) =>
+                  typeof item === "string" ? (
+                    <a
+                      key={index}
+                      href={`#${item.toLowerCase().replace(/\s+/g, '-')}`} // Convert item name to ID format
+                      className="nav-link font-bold"
+                      onClick={() => setIsMenuOpen(false)}
+                    >
                       {item}
                     </a>
                   ) : (
@@ -79,11 +88,15 @@ export default function RootLayout({ children }) {
                       <a href="#" className="nav-link font-bold">
                         {item.name}
                       </a>
-                      <div className="absolute left-0 mt-2 w-48 bg-white text-black rounded-md shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out z-50">
+                      <div className="absolute left-0 mt-2 w-[150px] bg-white text-black rounded-md shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out z-50">
                         <ul className="py-2">
                           {item.links.map((link, linkIndex) => (
                             <li key={linkIndex}>
-                              <a href="#" className="block px-4 py-2 hover:bg-gray-200">
+                              <a
+                                href={`#${link.toLowerCase().replace(/\s+/g, '-')}`} // Convert link name to ID format
+                                className="block px-3 py-2 hover:bg-gray-200"
+                                onClick={() => setIsMenuOpen(false)}
+                              >
                                 {link}
                               </a>
                             </li>
@@ -92,8 +105,8 @@ export default function RootLayout({ children }) {
                       </div>
                     </div>
                   )
-                ))}
-                <div className="flex items-center space-x-2">
+                )}
+                <div className="flex items-center space-x-3">
                   <a href="mailto:info@solariumenergy.in" className="material-icons">
                     <span className="h-10 w-10 text-xl">
                       <MdEmail />
@@ -105,66 +118,104 @@ export default function RootLayout({ children }) {
                 </div>
               </nav>
             </header>
-            <nav
-  className={`fixed top-0 right-0 h-full w-3/4 bg-[#000B58] text-white shadow-lg transform ${
-    isMenuOpen ? "translate-x-0" : "translate-x-full"
-  } transition-transform duration-300 ease-in-out md:hidden z-50`}
->
-  <button
-    className="absolute top-4 right-4 text-white"
-    onClick={() => setIsMenuOpen(false)}
-  >
-    ✕
-  </button>
-  <ul className="flex flex-col items-center justify-center h-full space-y-4">
-    {navItems.map((item, index) => (
-      typeof item === 'string' ? (
-        <li key={index} className="w-full text-center">
-          <a href="#" className="nav-link font-bold block">
-            {item}
-          </a>
-        </li>
-      ) : (
-        <li key={index} className="w-full text-center">
-          <button
-            onClick={() => toggleDropdown(index)}
-            className="nav-link font-bold w-full text-center"
-          >
-            {item.name}
-          </button>
-          {openDropdown === index && (
-            <ul className="bg-white text-black w-full">
-              {item.links.map((link, linkIndex) => (
-                <li key={linkIndex} className="text-center">
-                  <a href="#" className="block px-4 py-2 hover:bg-gray-200">
-                    {link}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          )}
-        </li>
-      )
-    ))}
-    <div className="flex items-center justify-center space-x-2">
-      <a href="mailto:info@solariumenergy.in" className="material-icons">
-        <span className="h-10 w-10 text-xl">
-          <MdEmail />
-        </span>
-      </a>
-      <a href="tel:9522495225" className="material-icons text-xl">
-        <FaPhone />
-      </a>
-    </div>
-  </ul>
-</nav>
 
+            {/* Sticky Mobile Menu */}
+            <nav
+              className={`mobile-nav fixed top-0 right-0 h-full w-3/4 bg-[#000B58] text-white shadow-lg transform ${
+                isMenuOpen ? "translate-x-0" : "translate-x-full"
+              } transition-transform duration-300 ease-in-out z-50`}
+            >
+              <div className="flex flex-col gap-20">
+                <div className="flex items-center justify-center relative h-20">
+                  <button
+                    className="text-white absolute mt-14 transform -translate-y-1/2 right-5"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    ✕
+                  </button>
+                  <div className="flex items-center justify-center w-full">
+                    <Image
+                      src="/logo.png"
+                      alt="Brand Logo"
+                      width={80}
+                      height={40}
+                      className="logo mt-10"
+                    />
+                  </div>
+                </div>
+
+                <div>
+                  <ul className="flex flex-col items-center justify-center h-full space-y-6">
+                    {navItems.map((item, index) =>
+                      typeof item === "string" ? (
+                        <li key={index} className="w-full text-center">
+                          <a
+                            href={`#${item.toLowerCase().replace(/\s+/g, '-')}`} // Convert item name to ID format
+                            className="nav-link font-bold block"
+                            onClick={() => setIsMenuOpen(false)}
+                          >
+                            {item}
+                          </a>
+                        </li>
+                      ) : (
+                        <li key={index} className="w-full text-center">
+                          <button
+                            onClick={() => toggleDropdown(index)}
+                            className="nav-link font-bold w-full text-center flex justify-center items-center"
+                          >
+                            {item.name}
+                            <span
+                              className={`ml-2 transform transition-transform duration-300 ${
+                                openDropdown === index ? "rotate-180" : "rotate-0"
+                              }`}
+                            >
+                              ▼
+                            </span>
+                          </button>
+
+                          {openDropdown === index && (
+                            <ul className="bg-white text-black w-full">
+                              {item.links.map((link, linkIndex) => (
+                                <li key={linkIndex} className="text-center">
+                                  <a
+                                    href={`#${link.toLowerCase().replace(/\s+/g, '-')}`} // Convert link name to ID format
+                                    className="block px-4 py-2 hover:bg-gray-200"
+                                    onClick={() => setIsMenuOpen(false)}
+                                  >
+                                    {link}
+                                  </a>
+                                </li>
+                              ))}
+                            </ul>
+                          )}
+                        </li>
+                      )
+                    )}
+                    <div className="flex items-center justify-center space-x-4">
+                      <a
+                        href="mailto:info@solariumenergy.in"
+                        className="material-icons"
+                      >
+                        <span className="h-10 w-10 text-xl">
+                          <MdEmail />
+                        </span>
+                      </a>
+                      <a href="tel:9522495225" className="material-icons text-xl">
+                        <FaPhone />
+                      </a>
+                    </div>
+                  </ul>
+                </div>
+              </div>
+            </nav>
 
             <main className="flex-grow">{children}</main>
 
             <footer className="bg-[#000B58] text-white p-4 text-center">
               <div className="container mx-auto">
-                <p className="mb-2">© 2024 Solar Company. All rights reserved.</p>
+                <p className="mb-2">
+                  © 2024 Solar Company. All rights reserved.
+                </p>
                 <div className="flex justify-center space-x-4">
                   {["Privacy Policy", "Terms of Service", "Contact Us"].map(
                     (item, index) => (

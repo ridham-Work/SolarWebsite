@@ -4,26 +4,38 @@
 
 
 
-/* Example CSS for centering */
-/* .container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100vh; /* Full viewport height */
-  */
-/*   
-  .header, .footer {
-    width: 100%;
-    text-align: center;
-  }
-   */
+
+/* For Webkit-based browsers (Chrome, Edge, Safari) */
+body::-webkit-scrollbar {
+  width: 10px; /* Width of the scrollbar */
+}
+
+body::-webkit-scrollbar-track {
+  background: #000b58; /* Deep blue track */
+  border-radius: px; /* Rounded track */
+}
+
+body::-webkit-scrollbar-thumb {
+  background: #ff9900; /* Green thumb */
+  border-radius: 10px; /* Rounded thumb */
+  border: 2px solid #000b58; /* Border to match the track color */
+}
+
+body::-webkit-scrollbar-thumb:hover {
+  background: #ff9900; /* Lighter green when hovering */
+}
+
+
 .nav-link {
     position: relative;
     display: inline-block;
     padding-bottom: 4px; /* Increase the space between text and underline */
     text-underline-offset: 4px; /* Adjust the value as needed */
     color: aliceblue;
+}
+/* Add this to your global CSS file */
+body,html{
+  overflow-x: hidden;
 }
 
 .nav-link::after {
@@ -146,9 +158,229 @@
     font-size: 1.2rem;
     color: #333;
   }
+
+  /* In globals.css */
+body, html {
+  overflow-x: hidden;
+}
+
   
   @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
   }
   
+  @keyframes led-stripe {
+  0% {
+    border-color: #000b58;
+  }
+  25% {
+    border-color: #000b58;
+  }
+  50% {
+    border-color: #000b58;
+  }
+  75% {
+    border-color: #000b58;
+  }
+  100% {
+    border-color: #000b58;
+  }
+}
+
+.led-border {
+  animation: led-stripe 2s linear infinite;
+}
+
+
+.rotate-0 {
+  transform: rotate(0deg);
+}
+
+.rotate-180 {
+  transform: rotate(180deg);
+}
+/* globals.css */
+
+
+
+/* globals.css */
+
+@media (max-width: 840px) {
+  .desktop-nav {
+    display: none;
+  }
+  .mobile-nav {
+    display: block;
+  }
+}
+
+@media (min-width: 840px) {
+  .desktop-nav {
+    display: flex;
+  }
+  .mobile-nav {
+    display: none;
+  }
+}
+
+/* globals.css */
+
+/* Hide desktop nav and show mobile nav for screens less than 840px */
+@media (max-width: 839px) {
+  .desktop-nav {
+    display: none;
+  }
+  .mobile-nav {
+    display: block;
+  }
+}
+
+/* Show desktop nav and hide mobile nav for screens 840px and above */
+@media (min-width: 840px) {
+  .desktop-nav {
+    display: flex;
+  }
+  .mobile-nav {
+    display: none;
+  }
+}
+
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 40;
+  background-color: #000B58;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.input-hover:hover {
+  border-color: #000b58;
+  border-width: 1.5px; /* Adjust the width as needed */
+}
+
+
+
+@keyframes scaleY {
+  0%, 100% {
+    transform: scaleY(1);
+  }
+  50% {
+    transform: scaleY(1.5);
+  }
+}
+
+@keyframes scaleX {
+  0%, 100% {
+    transform: scaleX(1);
+  }
+  50% {
+    transform: scaleX(1.5);
+  }
+}
+
+.animate-spin {
+  animation: spin 1s infinite linear;
+}
+
+.animate-scale-y {
+  animation: scaleY 1s infinite;
+}
+
+.animate-scale-x {
+  animation: scaleX 1s infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Remove the overflow-x: auto; from .table-responsive */
+
+
+.table-auto {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table-auto th, .table-auto td {
+  padding: 8px;
+  border: 1px solid #000b58;
+  white-space: normal; /* Allow text to wrap */
+}
+
+.table-auto td {
+  word-wrap: break-word; /* Ensure long text breaks and wraps */
+  max-width: 200px; /* Optional: Set a max width for table cells */
+}
+
+
+/* Add this CSS to your global styles or use it in a component-level style */
+@keyframes waveAnimation {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.animate-wave {
+  animation: waveAnimation 6s linear infinite;
+}
+
+/* SolarResidentialSection css*/
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 1s ease-out;
+}
+
+.animate-fadeIn.delay-200 {
+  animation-delay: 200ms;
+}
+
+@keyframes pulseIcon {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.animate-pulse {
+  animation: pulseIcon 1.5s ease-in-out infinite;
+}
+
+.smooth-scroll{
+  scroll-behavior: smooth;
+}
+/* globals.css */
+
+html {
+  scroll-behavior: smooth;
+}
