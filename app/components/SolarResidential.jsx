@@ -1,3 +1,4 @@
+"use client"
 import { FaShieldAlt, FaHome, FaTag, FaHeadset } from "react-icons/fa";
 
 const ResidentialSolarSection = () => {

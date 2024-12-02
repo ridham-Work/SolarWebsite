@@ -1,8 +1,6 @@
-"use client";
-import React, { useState, useRef } from "react";
+import React from "react";
 import Image from "next/image";
-import "./globals.css"; // Make sure to import your CSS file
-import "@/app/components/SolarSection";
+import "./globals.css";
 import SolarSection from "@/app/components/SolarSection";
 import SolarResidentialSection from "./components/SolarResidential";
 import CommercialSolarSection from "./components/CommercialSolar";
@@ -13,64 +11,72 @@ import WhyChooseUs from "./components/WhyChooseUs";
 import FAQ from "./components/Faq";
 import ContactUs from "./components/Contactus";
 
+// Static Metadata
+export const metadata = {
+  title: "MS Solar Spark - Solar Energy Solutions",
+  description:
+    "Discover how MS Solar Spark can help you save on electricity bills with sustainable solar energy solutions. Empower a greener future.",
+  keywords: [
+    "solar energy",
+    "green energy",
+    "renewable energy",
+    "solar panels",
+    "sustainable energy",
+    "eco-friendly",
+    "energy savings",
+  ],
+  openGraph: {
+    title: "MS Solar Spark - Solar Energy Solutions",
+    description:
+      "Discover how MS Solar Spark can help you save on electricity bills with sustainable solar energy solutions.",
+    url: "https://www.mssolarspark.com",
+    images: [
+      {
+        url: "/images/solar-banner.jpg",
+        width: 800,
+        height: 600,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "MS Solar Spark - Solar Energy Solutions",
+    description:
+      "Discover how MS Solar Spark can help you save on electricity bills with sustainable solar energy solutions.",
+    images: ["/images/solar-banner.jpg"],
+  },
+};
+
 const SolarCalculator = () => {
   return (
     <div>
-      <div>
-        <section id="" className="py-12 px-8 bg-gray-50">
-          <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-            {/* Left Section */}
-            <div>
-              <h1 className="text-4xl font-bold text-[#000b58] mb-4">
-                Harness the Power of the Sun!
-              </h1>
-              <p className="text-lg text-gray-600 mb-6">
-                Save money, protect the environment, and achieve energy
-                independence. Find out how much you can save by switching to
-                solar energy!
-              </p>
-              <a href="#get-quotation" className="">
-                <button className="bg-[#000b58] text-white px-6 py-3 rounded-md shadow-md hover:bg-[#242c68] transition">
-                  Calculate Your Savings
-                </button>
-              </a>
-            </div>
-
-            {/* Right Section */}
-            <div>
-              <video
-                src="/videos/solarcalc.mp4"
-                loop
-                className="rounded-lg shadow-lg w-full h-auto"
-                autoPlay
-                muted
-              />
-            </div>
+      <section className="py-12 px-8 bg-gray-50">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+          <div>
+            <h1 className="text-4xl font-bold text-[#000b58] mb-4">
+              Harness the Power of the Sun!
+            </h1>
+            <p className="text-lg text-gray-600 mb-6">
+              Save money, protect the environment, and achieve energy independence.
+              Find out how much you can save by switching to solar energy!
+            </p>
+            <a href="#get-quotation">
+              <button className="bg-[#000b58] text-white px-6 py-3 rounded-md shadow-md hover:bg-[#242c68] transition">
+                Calculate Your Savings
+              </button>
+            </a>
           </div>
-
-          <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-            <div className="flex items-center">
-              <div className="text-yellow-500 text-3xl mr-4 animate-spin">
-                ☀️
-              </div>
-              <p className="text-lg text-gray-700">Save on electricity bills</p>
-            </div>
-            <div className="flex items-center">
-              <div className="text-green-500 text-3xl mr-4 animate-scale-y">
-                🌱
-              </div>
-              <p className="text-lg text-gray-700">Eco-friendly energy</p>
-            </div>
-            <div className="flex items-center">
-              <div className="text-blue-500 text-3xl mr-4 animate-scale-x">
-                💡
-              </div>
-              <p className="text-lg text-gray-700">Energy independence</p>
-            </div>
+          <div>
+            <video
+              src="/videos/solarcalc.mp4"
+              loop
+              className="rounded-lg shadow-lg w-full h-auto"
+              autoPlay
+              muted
+            />
           </div>
-        </section>
-      </div>
-
+        </div>
+      </section>
       <section id="get-quotation">
         <Solarcalc />
       </section>
@@ -81,12 +87,12 @@ const SolarCalculator = () => {
 const Page = () => {
   return (
     <div>
-      <div className="relative w-full h-[87vh] overflow-auto">
+      <div className="relative w-full h-[87vh] overflow-hidden">
         <Image
           src="/4.jpeg"
           layout="fill"
           objectFit="cover"
-          alt="Hero Image"
+          alt="Solar energy installation"
           className="absolute inset-0 w-full h-full z-0 filter blur-[5px]"
         />
         <div className="absolute inset-0 flex flex-col items-center justify-center text-white text-center z-10">
@@ -96,18 +102,17 @@ const Page = () => {
           <p className="mt-2 text-lg tracking-wider font-bold">
             Empowering a sustainable future with renewable energy solutions.
           </p>
-        <a href="#get-quotation">
-        <button className="mt-4 px-6 py-2 bg-[#000b58] text-white font-bold rounded hover:bg-[#192158]">
-            Start Saving Now
-          </button>
-        </a>
+          <a href="#get-quotation">
+            <button className="mt-4 px-6 py-2 bg-[#000b58] text-white font-bold rounded hover:bg-[#192158]">
+              Start Saving Now
+            </button>
+          </a>
         </div>
       </div>
 
-      <section id="">
-        <div className="m-2">
-          <SolarCalculator />
-        </div>
+      {/* Other Sections */}
+      <section>
+        <SolarCalculator />
       </section>
 
       <section>
@@ -134,12 +139,12 @@ const Page = () => {
         <WhyChooseUs />
       </section>
 
-      <section id="faq's">
+      <section id="faq">
         <FAQ />
       </section>
 
       <section id="reach-us">
-        <ContactUs/>
+        <ContactUs />
       </section>
     </div>
   );

@@ -1,3 +1,4 @@
+"use client"
 import { FaMoneyBillWave, FaLeaf, FaShieldAlt } from "react-icons/fa";
 
 const SolarSection = () => {
