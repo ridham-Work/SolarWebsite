@@ -59,11 +59,11 @@ export default function RootLayout({ children }) {
             <header className="bg-[#000B58] fixed top-0 left-0 right-0 z-40 text-white p-4 flex justify-between items-center">
               <div className="flex items-center">
                 <Image
-                  src="/logofinal.png"
+                  src="/Logo 1.png"
                   alt="Brand Logo"
-                  width={100}
-                  height={60}
-                  className="mr-3 object-cover h-10 w-40 logo"
+                  width={120}
+                  height={80}
+                  className="mr-3 object-cover  logo"
                 />
               </div>
               <button
@@ -72,36 +72,37 @@ export default function RootLayout({ children }) {
               >
                 ☰
               </button>
-              <nav className="desktop-nav space-x-4">
+              <nav className="desktop-nav space-x-4 hover:text-[#FF9900] ">
                 {navItems.map((item, index) =>
                   typeof item === "string" ? (
                     <a
                       key={index}
                       href={`#${item.toLowerCase().replace(/\s+/g, '-')}`} // Convert item name to ID format
-                      className="nav-link font-bold"
+                      className="nav-link font-bold hover:text-[#FF9900]"
                       onClick={() => setIsMenuOpen(false)}
                     >
                       {item}
                     </a>
                   ) : (
                     <div key={index} className="relative group">
-                      <a href="#" className="nav-link font-bold">
+                      <a href="#" className="nav-link font-bold hover:text-[#FF9900] ">
                         {item.name}
                       </a>
                       <div className="absolute left-0 mt-2 w-[150px] bg-white text-black rounded-md shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out z-50">
-                        <ul className="py-2">
-                          {item.links.map((link, linkIndex) => (
-                            <li key={linkIndex}>
-                              <a
-                                href={`#${link.toLowerCase().replace(/\s+/g, '-')}`} // Convert link name to ID format
-                                className="block px-3 py-2 hover:bg-gray-200"
-                                onClick={() => setIsMenuOpen(false)}
-                              >
-                                {link}
-                              </a>
-                            </li>
-                          ))}
-                        </ul>
+                      <ul className="py-2">
+  {item.links.map((link, linkIndex) => (
+    <li key={linkIndex}>
+      <a
+        href={`#${link.toLowerCase().replace(/\s+/g, '-')}`} // Convert link name to ID format
+        className="block px-3 py-2 font-semibold hover:bg-gray-200 hover:text-[#FF9900]"
+        onClick={() => setIsMenuOpen(false)}
+      >
+        {link}
+      </a>
+    </li>
+  ))}
+</ul>
+
                       </div>
                     </div>
                   )
@@ -121,7 +122,7 @@ export default function RootLayout({ children }) {
 
             {/* Sticky Mobile Menu */}
             <nav
-              className={`mobile-nav fixed top-0 right-0 h-full w-3/4 bg-[#2e3040] text-white shadow-lg transform ${
+              className={`mobile-nav fixed top-0 right-0 h-full w-3/4 bg-[#000b58] hover:text-[#FF9900] text-white shadow-lg transform ${
                 isMenuOpen ? "translate-x-0" : "translate-x-full"
               } transition-transform duration-300 ease-in-out z-50`}
             >
@@ -135,7 +136,7 @@ export default function RootLayout({ children }) {
                   </button>
                   <div className="flex items-center justify-center w-full">
                     <Image
-                      src="/logofinal.png"
+                      src="/Logo 1.png"
                       alt="Brand Logo"
                       width={80}
                       height={40}

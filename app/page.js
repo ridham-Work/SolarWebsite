@@ -9,6 +9,7 @@ import TestimonialSection from "./components/Testimonials";
 import WhyChooseUs from "./components/WhyChooseUs";
 import FAQ from "./components/Faq";
 import ContactUs from "./components/Contactus";
+import SolarCompanySections from "./components/CompanyStuff";
 
 export const metadata = {
   title: "MS Solar Spark - Solar Energy Solutions",
@@ -116,6 +117,10 @@ const Page = () => {
         <SolarCalculator />
       </section>
 
+    <section>
+      <SolarCompanySections/>
+    </section>
+
       <section>
         <SolarSection />
       </section>
@@ -140,7 +145,7 @@ const Page = () => {
         <WhyChooseUs />
       </section>
 
-      <section id="faq">
+      <section id="faq's">
         <FAQ />
       </section>
 
