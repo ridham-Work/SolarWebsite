@@ -1,5 +1,6 @@
+
 "use client"
-import React, { useEffect, useRef, useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 
 const WhyChooseUs = () => {
   const [counting, setCounting] = useState(false);
@@ -35,45 +36,32 @@ const WhyChooseUs = () => {
   ];
 
   const countersRef = useRef([]);
-  const sectionRef = useRef(null);
 
   const animateCounter = (target, index) => {
     let count = 0;
-    const increment = target / 100;
+    const increment = Math.ceil(target / 100);
     const counter = countersRef.current[index];
+
     const interval = setInterval(() => {
       count += increment;
       if (count >= target) {
-        clearInterval(interval);
         count = target;
+        clearInterval(interval);
+        setTimeout(() => animateCounter(target, index), 1000); // 1-second delay before restarting
       }
-      counter.innerText = Math.floor(count);
-    }, 10);
+      counter.innerText = count;
+    }, 10); // Update every 10ms
   };
 
   useEffect(() => {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting && !counting) {
-          setCounting(true);
-          stats.forEach((stat, index) => animateCounter(stat.value, index));
-        }
-      });
-    }, { threshold: 0.5 });
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
+    if (!counting) {
+      setCounting(true);
+      stats.forEach((stat, index) => animateCounter(stat.value, index)); // Start the counter animations
     }
-
-    return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
-      }
-    };
   }, [counting]);
 
   return (
-    <section className="text-white py-16" ref={sectionRef}>
+    <section className="text-white py-16">
       <div className="container mx-auto px-6 lg:px-16">
         <h2 className="text-4xl font-bold text-center text-green-500 mb-12">
           Why <span className="text-[#1a276e]">Trust Us?</span>
@@ -113,30 +101,6 @@ const WhyChooseUs = () => {
               <div className="absolute inset-0 bg-gradient-to-r from-green-400 to-green-600 opacity-0 group-hover:opacity-10 rounded-lg transition-opacity duration-300"></div>
             </div>
           ))}
-        </div>
-
-        {/* Testimonials Section */}
-        <div className="bg-[#1a276e] p-8 rounded-lg shadow-lg">
-          <h3 className="text-3xl font-bold text-center mb-6">
-            What Our Clients Say
-          </h3>
-          <p className="text-center text-gray-400 mb-8">
-            See what makes us the trusted choice for solar solutions.
-          </p>
-          <div className="flex justify-center items-center">
-            {/* Replace with a testimonial carousel component */}
-            <div className="bg-green-500 p-6 rounded-lg shadow-md text-center max-w-xl">
-              <p className="text-lg italic">
-                "Switching to solar with this company was the best decision we
-                made. Their expertise and support exceeded our expectations!"
-              </p>
-              <a href="#testimonials" className="cursor-pointer">
-                <button className="mt-4 text-sm font-bold hover:text-[#1a276e]">
-                  <u> Show More Reviews!</u>
-                </button>
-              </a>
-            </div>
-          </div>
         </div>
       </div>
     </section>

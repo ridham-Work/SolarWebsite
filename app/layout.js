@@ -121,7 +121,7 @@ export default function RootLayout({ children }) {
 
             {/* Sticky Mobile Menu */}
             <nav
-              className={`mobile-nav fixed top-0 right-0 h-full w-3/4 bg-[#000B58] text-white shadow-lg transform ${
+              className={`mobile-nav fixed top-0 right-0 h-full w-3/4 bg-[#2e3040] text-white shadow-lg transform ${
                 isMenuOpen ? "translate-x-0" : "translate-x-full"
               } transition-transform duration-300 ease-in-out z-50`}
             >
@@ -135,7 +135,7 @@ export default function RootLayout({ children }) {
                   </button>
                   <div className="flex items-center justify-center w-full">
                     <Image
-                      src="/logo.png"
+                      src="/logofinal.png"
                       alt="Brand Logo"
                       width={80}
                       height={40}

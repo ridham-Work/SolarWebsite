@@ -112,32 +112,32 @@ const Solarcalc = () => {
           <h2 className="text-4xl font-bold text-[#000b58] mb-4">
             Calculate your needs with our Calculator
           </h2>
-          <div className="counters-container flex justify-between space-x-4 md:space-x-8">
-            <div className="counter-item p-6 rounded-xl  flex-1">
-              <div className="text-center mb-2">
-                <p className="text-6xl font-bold text-green-500">{calcTries.toFixed(0)}</p>
-                <p className="text-lg font-semibold text-[#000b58]">Calculation Attempts</p>
-              </div>
-            </div>
-            <div className="counter-item p-6 rounded-xl  flex-1">
-              <div className="text-center mb-2">
-                <p className="text-6xl font-bold text-green-500">{accuracy.toFixed(0)}%</p>
-                <p className="text-lg font-semibold text-[#000b58]">Accuracy</p>
-              </div>
-            </div>
-            <div className="counter-item p-6 rounded-xl  flex-1">
-              <div className="text-center mb-2">
-                <p className="text-6xl font-bold text-green-500">{confidence.toFixed(0)}%</p>
-                <p className="text-lg font-semibold text-[#000b58]">Confidence in Purchase</p>
-              </div>
-            </div>
-            <div className="counter-item p-6 rounded-xl  flex-1">
-              <div className="text-center mb-2">
-                <p className="text-6xl font-bold text-green-500">{savings.toFixed(0)}%</p>
-                <p className="text-lg font-semibold text-[#000b58]">Electricity Savings</p>
-              </div>
-            </div>
-          </div>
+       <div className="counters-container flex flex-wrap justify-between space-x-4 md:space-x-8">
+  <div className="counter-item p-6 rounded-xl flex-1 min-w-[250px]">
+    <div className="text-center mb-2">
+      <p className="text-6xl font-bold text-green-500">{calcTries.toFixed(0)}</p>
+      <p className="text-lg font-semibold text-[#000b58]">Calculation Attempts</p>
+    </div>
+  </div>
+  <div className="counter-item p-6 rounded-xl flex-1 min-w-[250px]">
+    <div className="text-center mb-2">
+      <p className="text-6xl font-bold text-green-500">{accuracy.toFixed(0)}%</p>
+      <p className="text-lg font-semibold text-[#000b58]">Accuracy</p>
+    </div>
+  </div>
+  <div className="counter-item p-6 rounded-xl flex-1 min-w-[250px]">
+    <div className="text-center mb-2">
+      <p className="text-6xl font-bold text-green-500">{confidence.toFixed(0)}%</p>
+      <p className="text-lg font-semibold text-[#000b58]">Confidence in Purchase</p>
+    </div>
+  </div>
+  <div className="counter-item p-6 rounded-xl flex-1 min-w-[250px]">
+    <div className="text-center mb-2">
+      <p className="text-6xl font-bold text-green-500">{savings.toFixed(0)}%</p>
+      <p className="text-lg font-semibold text-[#000b58]">Electricity Savings</p>
+    </div>
+  </div>
+</div>
         </div>
 
         {/* Calculator Form Section */}
