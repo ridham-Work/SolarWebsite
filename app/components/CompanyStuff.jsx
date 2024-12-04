@@ -41,9 +41,11 @@ const SolarCompanySections = () => {
               </p>
             </div>
           </div>
-          <button className="mt-4 px-6 py-3 bg-green-500 text-white font-semibold rounded-lg hover:bg-green-600 transition duration-200">
+       <a href="#residential">
+       <button className="mt-4 px-6 py-3 bg-green-500 text-white font-semibold rounded-lg hover:bg-green-600 transition duration-200">
             Learn More
           </button>
+       </a>
         </div>
       </section>
 

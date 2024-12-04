@@ -56,8 +56,6 @@ const Solarcalc = () => {
     { value: "uttarakhand", label: "Uttarakhand" },
     { value: "west-bengal", label: "West Bengal" }
   ];
-  
-  
 
   // Animate the counter from 0 to the target value infinitely
   const animateCounter = (target, setState) => {
@@ -82,6 +80,7 @@ const Solarcalc = () => {
     animateCounter(100, setConfidence); // Example limit for confidence
     animateCounter(100, setSavings); // Example limit for savings
   }, []); //
+
   const calculatePanels = () => {
     if (!energyUsage || !electricityCost || !customerType || !dailyConsumption || !peakDemand || !applianceRatings || !name || !mobile || !email) {
       alert("Please fill in all fields.");
@@ -112,32 +111,32 @@ const Solarcalc = () => {
           <h2 className="text-4xl font-bold text-[#000b58] mb-4">
             Calculate your needs with our Calculator
           </h2>
-       <div className="counters-container flex flex-wrap justify-between space-x-4 md:space-x-8">
-  <div className="counter-item p-6 rounded-xl flex-1 min-w-[250px]">
-    <div className="text-center mb-2">
-      <p className="text-6xl font-bold text-green-500">{calcTries.toFixed(0)}</p>
-      <p className="text-lg font-semibold text-[#000b58]">Calculation Attempts</p>
-    </div>
-  </div>
-  <div className="counter-item p-6 rounded-xl flex-1 min-w-[250px]">
-    <div className="text-center mb-2">
-      <p className="text-6xl font-bold text-green-500">{accuracy.toFixed(0)}%</p>
-      <p className="text-lg font-semibold text-[#000b58]">Accuracy</p>
-    </div>
-  </div>
-  <div className="counter-item p-6 rounded-xl flex-1 min-w-[250px]">
-    <div className="text-center mb-2">
-      <p className="text-6xl font-bold text-green-500">{confidence.toFixed(0)}%</p>
-      <p className="text-lg font-semibold text-[#000b58]">Confidence in Purchase</p>
-    </div>
-  </div>
-  <div className="counter-item p-6 rounded-xl flex-1 min-w-[250px]">
-    <div className="text-center mb-2">
-      <p className="text-6xl font-bold text-green-500">{savings.toFixed(0)}%</p>
-      <p className="text-lg font-semibold text-[#000b58]">Electricity Savings</p>
-    </div>
-  </div>
-</div>
+          <div className="counters-container flex flex-wrap justify-between space-x-4 md:space-x-8">
+            <div className="counter-item p-6 rounded-xl flex-1 min-w-[250px]">
+              <div className="text-center mb-2">
+                <p className="text-6xl font-bold text-green-500">{calcTries.toFixed(0)}</p>
+                <p className="text-lg font-semibold text-[#000b58]">Calculation Attempts</p>
+              </div>
+            </div>
+            <div className="counter-item p-6 rounded-xl flex-1 min-w-[250px]">
+              <div className="text-center mb-2">
+                <p className="text-6xl font-bold text-green-500">{accuracy.toFixed(0)}%</p>
+                <p className="text-lg font-semibold text-[#000b58]">Accuracy</p>
+              </div>
+            </div>
+            <div className="counter-item p-6 rounded-xl flex-1 min-w-[250px]">
+              <div className="text-center mb-2">
+                <p className="text-6xl font-bold text-green-500">{confidence.toFixed(0)}%</p>
+                <p className="text-lg font-semibold text-[#000b58]">Confidence in Purchase</p>
+              </div>
+            </div>
+            <div className="counter-item p-6 rounded-xl flex-1 min-w-[250px]">
+              <div className="text-center mb-2">
+                <p className="text-6xl font-bold text-green-500">{savings.toFixed(0)}%</p>
+                <p className="text-lg font-semibold text-[#000b58]">Electricity Savings</p>
+              </div>
+            </div>
+          </div>
         </div>
 
         {/* Calculator Form Section */}
@@ -145,56 +144,78 @@ const Solarcalc = () => {
           <h2 className="text-3xl font-bold mb-4 text-center">Solar Energy Calculator</h2>
           <p className="mb-4 text-center text-[#000b58]">Calculate how many solar panels you need to power your home.</p>
           <div className="flex flex-col items-center">
-            <input
-              type="text"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              placeholder="Enter your name"
-              className="p-2 border border-gray-300 rounded mb-4 w-full focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
-            <input
-              type="text"
-              value={mobile}
-              onChange={(e) => setMobile(e.target.value)}
-              placeholder="Enter your mobile number"
-              className="p-2 border border-gray-300 rounded mb-4 w-full focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
-            <input
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              placeholder="Enter your email"
-              className="p-2 border border-gray-300 rounded mb-4 w-full focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
-            <input
-              type="number"
-              value={energyUsage}
-              onChange={(e) => setEnergyUsage(e.target.value)}
-              placeholder="Enter your monthly energy usage (kWh)"
-              className="p-2 border border-gray-300 rounded mb-4 w-full focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
-            <input
-              type="number"
-              value={dailyConsumption}
-              onChange={(e) => setDailyConsumption(e.target.value)}
-              placeholder="Enter your daily energy consumption (kWh)"
-              className="p-2 border border-gray-300 rounded mb-4 w-full focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
-            <input
-              type="number"
-              value={peakDemand}
-              onChange={(e) => setPeakDemand(e.target.value)}
-              placeholder="Enter your peak energy demand (kW)"
-              className="p-2 border border-gray-300 rounded mb-4 w-full focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
-            <input
-              type="number"
-              value={applianceRatings}
-              onChange={(e) => setApplianceRatings(e.target.value)}
-              placeholder="Enter your appliance energy ratings (kWh)"
-              className="p-2 border border-gray-300 rounded mb-4 w-full focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
             <div className="mb-4 w-full">
+              <label className="block text-[#08800] mb-2">Name</label>
+              <input
+                type="text"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                placeholder="Enter your name"
+                className="p-2 border border-gray-300 rounded w-full focus:outline-none focus:ring-2 focus:ring-blue-500"
+              />
+            </div>
+            <div className="mb-4 w-full">
+              <label className="block text-[#08800] mb-2">Mobile Number</label>
+              <input
+                type="text"
+                value={mobile}
+                onChange={(e) => setMobile(e.target.value)}
+                placeholder="Enter your mobile number"
+                className="p-2 border border-gray-300 rounded w-full focus:outline-none focus:ring-2 focus:ring-blue-500"
+              />
+            </div>
+            <div className="mb-4 w-full">
+              <label className="block text-[#08800] mb-2">Email</label>
+              <input
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="Enter your email"
+                className="p-2 border border-gray-300 rounded w-full focus:outline-none focus:ring-2 focus:ring-blue-500"
+              />
+            </div>
+            <div className="mb-4 w-full">
+              <label className="block text-[#08800] mb-2">Monthly Energy Usage (kWh)</label>
+              <input
+                type="number"
+                value={energyUsage}
+                onChange={(e) => setEnergyUsage(e.target.value)}
+                placeholder="Enter your monthly energy usage (kWh)"
+                className="p-2 border border-gray-300 rounded w-full focus:outline-none focus:ring-2 focus:ring-blue-500"
+              />
+            </div>
+            <div className="mb-4 w-full">
+              <label className="block text-[#08800] mb-2">Daily Energy Consumption (kWh)</label>
+              <input
+                type="number"
+                value={dailyConsumption}
+                onChange={(e) => setDailyConsumption(e.target.value)}
+                placeholder="Enter your daily energy consumption (kWh)"
+                className="p-2 border border-gray-300 rounded w-full focus:outline-none focus:ring-2 focus:ring-blue-500"
+              />
+            </div>
+            <div className="mb-4 w-full">
+              <label className="block text-[#08800] mb-2">Peak Energy Demand (kW)</label>
+              <input
+                type="number"
+                value={peakDemand}
+                onChange={(e) => setPeakDemand(e.target.value)}
+                placeholder="Enter your peak energy demand (kW)"
+                className="p-2 border border-gray-300 rounded w-full focus:outline-none focus:ring-2 focus:ring-blue-500"
+              />
+            </div>
+            <div className="mb-4 w-full">
+              <label className="block text-[#08800] mb-2">Appliance Energy Ratings (kWh)</label>
+              <input
+                type="number"
+                value={applianceRatings}
+                onChange={(e) => setApplianceRatings(e.target.value)}
+                placeholder="Enter your appliance energy ratings (kWh)"
+                className="p-2 border border-gray-300 rounded w-full focus:outline-none focus:ring-2 focus:ring-blue-500"
+              />
+            </div>
+            <div className="mb-4 w-full">
+              <label className="block text-[#08800] mb-2">State</label>
               <select
                 name="state"
                 value={state}
@@ -208,6 +229,7 @@ const Solarcalc = () => {
               </select>
             </div>
             <div className="mb-4 w-full">
+              <label className="block text-[#08800] mb-2">Customer Category</label>
               <select
                 name="customer_type"
                 value={customerType}
@@ -221,6 +243,7 @@ const Solarcalc = () => {
               </select>
             </div>
             <div className="mb-4 w-full">
+              <label className="block text-[#08800] mb-2">Electricity Cost per kWh (₹)</label>
               <input
                 type="number"
                 value={electricityCost}
