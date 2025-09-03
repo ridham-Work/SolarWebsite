@@ -91,7 +91,7 @@ const Page = () => {
     <div>
       <div className="relative w-full h-[87vh] overflow-hidden">
         <Image
-          src="/4.jpeg"
+          src="https://res.cloudinary.com/dsqpc6sp6/image/upload/v1756915607/4_lel987.jpg"
           layout="fill"
           objectFit="cover"
           alt="Solar energy installation"
