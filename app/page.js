@@ -70,7 +70,7 @@ const SolarCalculator = () => {
           </div>
           <div>
             <video
-              src="/videos/solarcalc.mp4"
+              src="https://res.cloudinary.com/dsqpc6sp6/video/upload/v1756915604/solarcalc_curbtv.mp4"
               loop
               className="rounded-lg shadow-lg w-full h-auto"
               autoPlay
