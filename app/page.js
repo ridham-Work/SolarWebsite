@@ -90,13 +90,14 @@ const Page = () => {
   return (
     <div>
       <div className="relative w-full h-[87vh] overflow-hidden">
-        <Image
-          src="https://res.cloudinary.com/dsqpc6sp6/image/upload/v1756915607/4_lel987.jpg"
-          layout="fill"
-          objectFit="cover"
-          alt="Solar energy installation"
-          className="absolute inset-0 w-full h-full z-0 filter blur-[5px]"
-        />
+      
+<Image
+  src="https://res.cloudinary.com/dsqpc6sp6/image/upload/v1756915607/4_lel987.jpg"
+  alt="Solar energy installation"
+  fill
+  className="absolute inset-0 w-full h-full z-0 object-cover filter blur-[5px]"
+  priority
+/>
         <div className="absolute inset-0 flex flex-col items-center justify-center text-white text-center z-10">
           <h1 className="text-4xl font-bold tracking-wide text-[#f#f90]">
             Solar and Green Energy
